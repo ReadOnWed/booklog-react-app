@@ -1,0 +1,275 @@
+.header__wrapper {
+    background-color: #ffffff;
+    overflow: hidden;
+    top:0;
+    width: 100%;
+    height: 70px;
+    position: sticky;
+
+    .header__box{
+        width: 100%;
+        background-color: #ffffff;
+        height: 80px;
+        margin-left: 10px;
+        margin-right: 10px;
+
+        .booklog_logo {
+            height: 70px;
+            left: 1vw;
+            position: absolute;
+            top: 0.1vh;
+            .logo__image {
+                width: 70px;
+                left: 0;
+                object-fit: cover;
+                position: absolute;
+                top: 0;
+                vertical-align: top;
+                height: 60px
+            }
+        }
+        .booklog__title {
+            align-items: baseline;
+            color: #000000;
+            display: flex;
+            font-family: Inter, 'Source Sans Pro';
+            font-size: 460%;
+            font-weight: 400;
+            height: 6vh;
+            left: 90px;
+            position: absolute;
+            top: 0.5vh;
+            white-space: nowrap;
+            width: 10vw;
+    
+            .booklog__title__B {
+                color: #8a5631;
+                font-family: Inter, 'Source Sans Pro';
+                font-size: 80%;
+                font-weight: 700;
+                line-height: 1.2125;
+            }
+            @media (min-width: 1810px){
+                .booklog__title__ook {
+                    color: #000000;
+                    font-family: Inter, 'Source Sans Pro';
+                    font-size: 50%;
+                    font-weight: 400;
+                    line-height: 1.2125;
+                }
+                .booklog__title__LOG {
+                    color: #8a5630;
+                    font-family: Inter, 'Source Sans Pro';
+                    font-size: 80%;
+                    font-weight: 700;
+                    line-height: 1.2125;
+                }
+            }
+            @media (max-width: 1809px) and (min-width: 1024px){
+                .booklog__title__B {
+                    color: #8a5631;
+                    font-family: Inter, 'Source Sans Pro';
+                    font-size: 80%;
+                    font-weight: 700;
+                    line-height: 1.2125;
+                    margin-left: 26%;
+                }
+                .booklog__title__ook {
+                    /* 화면에 보이지 않도록 처리 */
+                    position: absolute;
+                    width: 1px;
+                    height: 1px;
+                    margin: -1px;
+                    overflow: hidden;
+                    clip-path: polygon(0 0, 0 0, 0 0);
+                }
+                .booklog__title__LOG {
+                    color: #8a5630;
+                    font-family: Inter, 'Source Sans Pro';
+                    font-size: 50%;
+                    font-weight: 700;
+                    line-height: 1.2125;
+                }
+            }
+            @media (max-width: 1023px){
+                .booklog__title__B {
+                    /* 화면에 보이지 않도록 처리 */
+                    position: absolute;
+                    width: 1px;
+                    height: 1px;
+                    margin: -1px;
+                    overflow: hidden;
+                    clip-path: polygon(0 0, 0 0, 0 0);
+                }
+                .booklog__title__ook {
+                    /* 화면에 보이지 않도록 처리 */
+                    position: absolute;
+                    width: 1px;
+                    height: 1px;
+                    margin: -1px;
+                    overflow: hidden;
+                    clip-path: polygon(0 0, 0 0, 0 0);
+                }
+                .booklog__title__LOG {
+                    /* 화면에 보이지 않도록 처리 */
+                    position: absolute;
+                    width: 1px;
+                    height: 1px;
+                    margin: -1px;
+                    overflow: hidden;
+                    clip-path: polygon(0 0, 0 0, 0 0);
+                }
+            }
+        }
+        .search__bar {
+            align-items: center;
+            background-color: #ffffff;
+            border: solid 0.2rem #5470ff;
+            border-radius: 0.8rem;
+            box-sizing: border-box;
+            display: flex;
+            height: 40px;
+            left: 14vw;
+            overflow: hidden;
+            position: absolute;
+            top: 15px;
+            width: 20vw;
+
+            .search__input {
+                color: #b0b0b0;
+                flex-shrink: 0;
+                font-family: Inter, 'Source Sans Pro';
+                font-size: 150%;
+                font-weight: 400;
+                line-height: 2;
+                margin-right: 60%;
+                white-space: nowrap;
+                height: 75vh;
+                float:left;
+            }
+        }
+        .primary__button__myPage {
+            align-items: center;
+            background-color: #c37857;
+            border-radius: 0.5rem;
+            color: #ffffff;
+            display: flex;
+            font-family: Inter, 'Source Sans Pro';
+            font-size: 100%;
+            font-weight: 700;
+            height: 40px;
+            justify-content: center;
+            left: 94vw;
+            line-height: 1.2125;
+            overflow: hidden;
+            position: absolute;
+            top: 20px;
+            white-space: nowrap;
+            width: 4.5%;
+        }
+        .primary__button__login {
+            align-items: center;
+            background-color: #c37857;
+            border-radius: 0.5rem;
+            color: #ffffff;
+            display: flex;
+            font-family: Inter, 'Source Sans Pro';
+            font-size: 100%;
+            font-weight: 700;
+            height: 40px;
+            justify-content: center;
+            left:89vw;
+            line-height: 1.2125;
+            overflow: hidden;
+            position: absolute;
+            top: 20px;
+            white-space: nowrap;
+            width: 4.5vw;
+        }
+        .menu__box {
+            width: 32vw;
+            position: fixed;
+            left: 57.5vw;
+            top: 11px;
+            height: 55px;
+            background-color: white;
+            position: absolute;
+            height: fit-content;
+
+            .menu__list {
+                position: relative;
+                height: 54px;
+                top : 2.6px;
+                display: flex;
+                justify-content: center;
+                flex-direction: row;
+                align-items: center;
+                @media (min-width: 1240px) {
+                    .menu__item {
+                        background-color: #e7e7e7;
+                        border-radius: 0.5rem;
+                        height: 50px;
+                        /* left: 92.5rem; */
+                        /* top: 1.7rem; */
+                        width: 100%;
+                        font-weight: 700;
+                        margin-right: 20px;
+                        padding: 0px 10px;
+                        font-family: Inter, 'Source Sans Pro';
+                        font-size: 100%;
+                        font-weight: 700;
+                        overflow: hidden;
+        
+                        .menu__name {
+                            height: 100%;
+                            font-size: 130%;
+                            /* padding-left: 50%; */
+                            margin-top: 12px;
+                            color:#717171;
+                            float:left;
+                        }
+                        .menu__image{
+                            float: left;
+                            margin-right:0.5vw;
+                            margin-top:12px;
+                            margin-left:0.3vw;
+                            width:1.3vw;
+                            height:auto;
+                        }
+                    }
+                }
+                @media (max-width: 1239px) {
+                    .menu__item {
+                        text-align: center; /* 내부 요소의 수평 가운데 정렬을 위해 부모 요소에 적용 */
+                        background-color: #e7e7e7;
+                        border-radius: 0.5rem;
+                        height: 50px;
+                        /* left: 92.5rem; */
+                        /* top: 1.7rem; */
+                        width: 50px;
+                        margin-right: 11px;
+                        padding: 0px 5px;
+                        overflow: hidden;
+                        .menu__name {
+                            /* 화면에 보이지 않도록 처리 */
+                            position: absolute;
+                            width: 1px;
+                            height: 1px;
+                            margin: -1px;
+                            overflow: hidden;
+                            clip-path: polygon(0 0, 0 0, 0 0);
+                        }
+                        .menu__image{
+                            width:25px;
+                            display: inline-block; /* 수평 가운데 정렬을 위해 인라인 블록 요소로 변경 */
+                            margin-left: auto;
+                            margin-right: auto;
+                            margin-top:10px;
+                            height: auto;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
