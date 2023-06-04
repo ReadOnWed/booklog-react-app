@@ -1,7 +1,6 @@
 // App.tsx : React 애플리케이션의 최상위 컴포넌트(애플리케이션의 루트 컴포넌트)
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navigation from "./components/Common/Navigation";
 import Header from './components/Common/Header';
 import Book from "./pages/Books";
 import User from "./pages/Members/index";
