@@ -1,0 +1,16 @@
+html, body{
+    width: 100%;
+    overflow-x: hidden;
+    height: 100%;
+    overflow: hidden;
+}
+.book__wrapper{
+    background-color: #F3F2EE;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /* 세로로 정렬 */
+    align-items: center; /* 세로 가운데 정렬 */
+    overflow: hidden;
+}

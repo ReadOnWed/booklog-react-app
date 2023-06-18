@@ -1,0 +1,49 @@
+html, body{
+    width:100%;
+    height: 100%;
+}
+
+.book__search__bar{
+    background-color: #dcb5a4;
+    border-radius: 0.5rem;
+    margin-top: 3vh;
+    width: 80%;
+    height: 100px;
+}
+.book__search__result{
+    background-color: rgb(255, 255, 255);
+    border-radius: 0.5rem;
+    margin-top: 3vh;
+    width: 80%;
+    height: 80%;
+    overflow: auto;
+}
+.book__search__default{
+    background-color: rgb(255, 255, 255);
+    border-radius: 0.5rem;
+    margin-top: 3vh;
+    width: 80%;
+    height: 80%;
+    overflow: auto;
+}
+
+.search__default__container{
+    .title{
+        font-family: Inter, 'Source Sans Pro';
+        margin-left: 10vw;
+        margin-bottom: 0px;
+    }
+    .search__default__list{
+        display: flex;
+        justify-content: center; /* 자식 요소를 가로로 가운데 정렬 */
+        .search__default__item{
+            display: inline-block;
+            /* 각각의 블록에 스타일을 적용할 수 있습니다. */
+            /* 예시로 width를 설정해봅시다. */
+            width: 300px;
+            margin-left: 50px;
+            margin-right: 50px;
+            font-family: Inter, 'Source Sans Pro';
+        }
+    }
+}
