@@ -54,15 +54,16 @@ export const getBookSearchResults = async(title, category, publisher, author) =>
 };
 
 // 책 id로 상세 정보 조회 API
-export const getBookSearchDeatilByBookId = async() => {
+export const getBookDetailsSearchByBookId = async(bookId) => {
     try {
-        const params = {
-            bookId: '1'
-          };
-          
-        const response = await axios.get('http://localhost:8080/v1/book-details', params);
+        const response = await axios.get('http://localhost:8080/v1/books/details', {
+            params: {
+                bookId: bookId
+            }
+        });
+        return response.data;
     } catch (error){
-        console.error('Fail BookSearchDeatilByBookId API call: ',error);
+        console.error('Fail BookSearchDeatilByBookId API call: ', error);
         return null;
     }
 };

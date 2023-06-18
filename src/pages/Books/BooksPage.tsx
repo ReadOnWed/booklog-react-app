@@ -109,7 +109,7 @@ const BooksPage: React.FC = () => {
 
             setShowSearchResults(true);
 
-            // 검색어를 URL 경로에 추가
+            // useNavigate 훅을 통해 검색어를 URL 경로에 추가
             const searchParamsByUrlPath = new URLSearchParams();
             if (searchData.title) searchParamsByUrlPath.set('title', searchData.title);
             if (searchData.category) searchParamsByUrlPath.set('category', searchData.category);
