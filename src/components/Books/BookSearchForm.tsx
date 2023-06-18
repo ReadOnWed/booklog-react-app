@@ -21,6 +21,11 @@ const BookSearchForm: React.FC<BookSearchFormProps> = ({ onSearch }) => {
     const [author, setAuthor] = useState('');
 
     const handleSearch = () => {
+        // 입력된 검색 조건이 없거나 공백일 경우 검색을 막음
+        if (!title.trim() && !category.trim() && !publisher.trim() && !author.trim()) {
+            return;
+        }
+        
         const searchData: BookSearchData = { title, category, publisher, author };
         onSearch(searchData);
     };
