@@ -123,7 +123,10 @@ const BooksPage: React.FC = () => {
 
     return (
         <div className='book__wrapper'>
-            <BookSearchForm onSearch={handleSearch} />
+            <BookSearchForm 
+                onSearch={handleSearch} 
+                bookSearchParams={bookSearchParams}
+            />
 
             {showSearchResults ? (
                 <BookSearchResults 
