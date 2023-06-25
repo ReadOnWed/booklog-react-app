@@ -2,7 +2,8 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from './components/Common/Header';
-import Book from "./pages/Books";
+import Book from "./pages/Books/BooksPage";
+import BookDetail from "./pages/Books/BookDetailPage";
 import User from "./pages/Members/index";
 import LoginPage from "./pages/Members/LoginPage";
 import MyPage from "./pages/Members/Mypage";
@@ -17,8 +18,9 @@ export default function App() {
       <Header />
 
       <Routes>
-        <Route path="/feed" element={<Feed />}></Route>
+        <Route path="/feed" element={<Feed />} />
         <Route path="/books" element={<Book />} />
+        <Route path="/bookDetail/:bookId" element={<BookDetail />}/>
         <Route path="/members" element={<User />} />
         <Route path="/reviews" element={<Review />} />
         <Route path="/payments"  element={<Payment />} />

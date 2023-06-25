@@ -1,0 +1,102 @@
+html, body{
+    width:100%;
+    height: 100%;
+}
+
+.book__search__bar{
+    background-color: #dcb5a4;
+    border-radius: 0.5rem;
+    margin-top: 3vh;
+    width: 80%;
+    height: 70px;
+
+    .search__bar__item{
+        background-color: #ffffff;
+        border: solid 0.3rem #d6d6d6;
+        width:15%;
+        height: 50%;
+        border-radius: 0.5rem;
+        margin-top: 13px;
+        margin-bottom: 15px;
+        margin-left: 15px;
+        font-family: Inter, 'Source Sans Pro';
+        font-size: 18px;
+    }
+
+    .search__bar__item__category{
+        background-color: #ffffff;
+        border: solid 0.3rem #d6d6d6;
+        width:15%;
+        height: 65%;
+        border-radius: 0.5rem;
+        margin-top: 13px;
+        margin-bottom: 15px;
+        margin-left: 15px;
+        font-family: Inter, 'Source Sans Pro';
+        font-size: 18px;
+        color: #777;
+    }
+
+    .search__logo{
+        background-color: #ffffff;
+        width: 60px;
+        height: 50px;
+        border-radius: 1.5rem;
+        border: solid 0.3rem  #75b9ee;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+        float: right;
+        font-family: Inter, 'Source Sans Pro';
+        font-size: 150%;
+        font-weight: bold;
+        color:#75b9ee;
+        text-align: left;
+        padding-top: 6px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .search__icon{
+        width:30px;
+        height:30px;
+    }
+}
+.book__search__result{
+    background-color: rgb(255, 255, 255);
+    border-radius: 0.5rem;
+    margin-top: 3vh;
+    width: 80%;
+    height: 80%;
+    overflow: auto;
+}
+.book__search__default{
+    background-color: rgb(255, 255, 255);
+    border-radius: 0.5rem;
+    margin-top: 3vh;
+    width: 80%;
+    height: 80%;
+    overflow: auto;
+}
+
+.search__default__container{
+    .title{
+        font-family: Inter, 'Source Sans Pro';
+        margin-left: 10vw;
+        margin-bottom: 0px;
+    }
+    .search__default__list{
+        display: flex;
+        justify-content: center; /* 자식 요소를 가로로 가운데 정렬 */
+        .search__default__item{
+            display: inline-block;
+            /* 각각의 블록에 스타일을 적용할 수 있습니다. */
+            /* 예시로 width를 설정해봅시다. */
+            width: 300px;
+            margin-left: 50px;
+            margin-right: 50px;
+            font-family: Inter, 'Source Sans Pro';
+        }
+    }
+}
