@@ -67,3 +67,14 @@ export const getBookDetailsSearchByBookId = async(bookId) => {
         return null;
     }
 };
+
+// 도서 category 호출
+export const getCategories = async() => {
+    try {
+        const response = await axios.get('http://localhost:8080/v1/books/categories')
+        return response.data;
+    } catch (error){
+        console.error('Fail BookSearchDeatilByBookId API call: ', error);
+        return null;
+    }
+};

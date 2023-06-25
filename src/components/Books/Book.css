@@ -8,7 +8,60 @@ html, body{
     border-radius: 0.5rem;
     margin-top: 3vh;
     width: 80%;
-    height: 100px;
+    height: 70px;
+
+    .search__bar__item{
+        background-color: #ffffff;
+        border: solid 0.3rem #d6d6d6;
+        width:15%;
+        height: 50%;
+        border-radius: 0.5rem;
+        margin-top: 13px;
+        margin-bottom: 15px;
+        margin-left: 15px;
+        font-family: Inter, 'Source Sans Pro';
+        font-size: 18px;
+    }
+
+    .search__bar__item__category{
+        background-color: #ffffff;
+        border: solid 0.3rem #d6d6d6;
+        width:15%;
+        height: 65%;
+        border-radius: 0.5rem;
+        margin-top: 13px;
+        margin-bottom: 15px;
+        margin-left: 15px;
+        font-family: Inter, 'Source Sans Pro';
+        font-size: 18px;
+        color: #777;
+    }
+
+    .search__logo{
+        background-color: #ffffff;
+        width: 60px;
+        height: 50px;
+        border-radius: 1.5rem;
+        border: solid 0.3rem  #75b9ee;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+        float: right;
+        font-family: Inter, 'Source Sans Pro';
+        font-size: 150%;
+        font-weight: bold;
+        color:#75b9ee;
+        text-align: left;
+        padding-top: 6px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .search__icon{
+        width:30px;
+        height:30px;
+    }
 }
 .book__search__result{
     background-color: rgb(255, 255, 255);

@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, ChangeEvent } from 'react';
 import './Book.css';
+import { getCategories } from '../../api/bookApi';
+
 
 type BookSearchFormProps = {
     onSearch: (searchData: BookSearchParams) => void;
@@ -13,6 +15,11 @@ type BookSearchParams = {
     author?: string | null;
 };
 
+type Option = {
+    value: string;
+    label: string;
+};
+
 // React.FC<> : 함수형 컴포넌트(functional component)를 정의
 const BookSearchForm: React.FC<BookSearchFormProps> = ({ onSearch, bookSearchParams }) => {
 
@@ -21,6 +28,23 @@ const BookSearchForm: React.FC<BookSearchFormProps> = ({ onSearch, bookSearchPar
     const [inputCategory, setInputCategory] = useState('');
     const [inputPublisher, setInputPublisher] = useState('');
     const [inputAuthor, setInputAuthor] = useState('');
+
+    const handleCategoryChange = (event: ChangeEvent<HTMLSelectElement>) => {
+        setInputCategory(event.target.value);
+      };
+    
+      const [options, setOptions] = useState<Option[]>([]);
+
+      useEffect(() => {
+        const getCategoriesData = async () => {
+          const categories = await getCategories();
+          if (categories) {
+            setOptions(categories);
+          }
+        };
+    
+        getCategoriesData();
+      }, []);
 
     useEffect(() => {
         // 검색 조건이 모두 null인 경우를 핸들링
@@ -60,20 +84,24 @@ const BookSearchForm: React.FC<BookSearchFormProps> = ({ onSearch, bookSearchPar
     return (
         <div className="book__search__bar">
             <input
+                className='search__bar__item'
                 type="text"
                 value={inputTitle}
                 onChange={(e) => setInputTitle(e.target.value)}
                 placeholder={inputTitle ? inputTitle : "책 제목"}
                 onKeyDown={onKeyPress}
             />
-            <input
-                type="text"
+            <select
+                className='search__bar__item__category'
                 value={inputCategory}
-                onChange={(e) => setInputCategory(e.target.value)}
-                placeholder={inputCategory ? inputCategory : "분류"}
-                onKeyDown={onKeyPress}
-            />
+                onChange={handleCategoryChange}
+            >
+                {options.map((option) => (
+                    <option key={option.value} value={option.value}>{option.label}</option>
+                ))}
+            </select>
             <input
+                className='search__bar__item'
                 type="text"
                 value={inputPublisher}
                 onChange={(e) => setInputPublisher(e.target.value)}
@@ -81,13 +109,16 @@ const BookSearchForm: React.FC<BookSearchFormProps> = ({ onSearch, bookSearchPar
                 onKeyDown={onKeyPress}
             />
             <input
+                className='search__bar__item'
                 type="text"
                 value={inputAuthor}
                 onChange={(e) => setInputAuthor(e.target.value)}
                 placeholder={inputAuthor ? inputAuthor : "저자"}
                 onKeyDown={onKeyPress}
             />
-            <button onClick={handleSearch}>검색</button>
+            <button onClick={handleSearch} className='search__logo'>
+                <img className="search__icon" src={"images/search.png"}></img>
+            </button>
         </div>
     );
 };
