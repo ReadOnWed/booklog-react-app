@@ -65,13 +65,6 @@ body {
     height: 30px;
   }
 }
-.book__search__result {
-  background-color: rgb(255, 255, 255);
-  border-radius: 0.5rem;
-  margin-top: 20px;
-  width: 1730px;
-  height: 80%;
-}
 .book__search__default {
   border-radius: 0.5rem;
   margin-top: 20px;
