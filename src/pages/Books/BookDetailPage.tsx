@@ -85,7 +85,7 @@ const BookDetailPage: React.FC = () => {
     <div>
       <h2>{bookDetails.title}</h2>
       <h3>{bookDetails.subTitle}</h3>
-      <img src={bookDetails.image} alt={bookDetails.title} />
+      <img className="book__cover" src={`images/booksCover/${bookId}.jpeg`} alt={bookDetails.title} />
       <p>{bookDetails.description}</p>
       <p>Author: {bookDetails.author}</p>
       <p>Publisher: {bookDetails.publisher}</p>
@@ -97,7 +97,7 @@ const BookDetailPage: React.FC = () => {
         <p>
         좋아요 : {bookDetails.likesCount}
         </p>
-    </p>
+      </p>
 
       <h4>Reviews</h4>
       {bookDetails.reviews.map((review) => (
