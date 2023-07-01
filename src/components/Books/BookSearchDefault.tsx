@@ -18,6 +18,7 @@ type Book = {
   publisher: string;
   publicationDate: string;
   totalResults: number;
+  likesCount: number;
 };
 
 // 여러개의 props를 전달받기 위한 interface 정의

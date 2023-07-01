@@ -18,6 +18,7 @@ type Book = {
     publisher: string;
     publicationDate: string;
     totalResults: number;
+    likesCount: number;
 };
 
 type BookSearchParams = {
@@ -65,6 +66,7 @@ const BookSearchResults: React.FC<BookSearchResultsProps> = ({ searchResults, bo
         const url = `/sell/${bookId}`;
         navigate(url);
     }
+    
     function renderStars(rating: number) {
         const starTotal = 5;
         const starCount = Math.floor(rating / 10); // 평점을 10으로 나눈 몫
@@ -147,7 +149,10 @@ const BookSearchResults: React.FC<BookSearchResultsProps> = ({ searchResults, bo
                     </div>
                 </div>
                 <div className='priamry__button__list'>
-                    <div className='primary__button'>즐겨찾기</div>
+                    <div className='primary__button__like'>
+                        <img className='like__icon' src='/images/book_like.png' alt='book_like' />
+                        {book.likesCount}
+                    </div>                    
                     <div className='primary__button' onClick={() => goToPaymentsSell(book.id)}>판매하기</div>
                     <div className='primary__button' onClick={() => goToPaymentsBuy(book.id)}>구매하기</div>
                 </div>

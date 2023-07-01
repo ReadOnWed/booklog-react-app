@@ -119,6 +119,7 @@ body {
     width: auto;
     height: 240px;
     float: left;
+    box-shadow: 5px 5px 30px 5px #828282;
   }
   .default__item__content {
     flex-direction: column;
@@ -183,6 +184,7 @@ body {
     height: auto;
     float: left;
     margin: 20px;
+    box-shadow: 5px 5px 30px 5px #828282;
   }
   .result__item__content {
     width: 37vw;
@@ -193,7 +195,7 @@ body {
     .content {
       justify-content: space-between;
       display: flex;
-      padding-top: 5px;
+      padding-top: 3px;
       height: 30px;
       width: 10%;
 
@@ -211,6 +213,8 @@ body {
         text-align: right;
         margin-right: 10px;
         white-space: nowrap;
+        padding-left: 30px;
+        padding-top: 15px;
       }
       .value {
         color: black;
@@ -218,7 +222,8 @@ body {
         font-family: Inter, "Source Sans Pro";
         font-size: 20px;
         width: 900px;
-  
+        padding-top: 15px;
+
         /* 글자가 width로 지정한 넓이를 넘을 경우 생략부호(...)를 표시함 */
         text-overflow: ellipsis;
         /* 줄바꿈하지 않고 한줄로 나오게 처리 */
@@ -230,9 +235,36 @@ body {
 
 .priamry__button__list {
   width: 300px;
-  height: 130px;
+  height: 150px;
   float: right;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
+  .primary__button__like {
+    width: 200px;
+    color: #fe2147;
+    text-align: center;
+    font-family: Inter, "Source Sans Pro";
+    font-size: 23px;
+    font-weight: bold;
+    border-radius: 2rem;
+    border-color: #fe2147;
+    border-style: solid;
+    border-width: 3px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding-top: 5px;
+    float: right;
+    margin-bottom: 10px;
+
+    .like__icon {
+        width: auto;
+        height: 23px;
+        margin-right: 10px;
+      }
+  }
   .primary__button {
     width: 200px;
     padding-top: 5px;

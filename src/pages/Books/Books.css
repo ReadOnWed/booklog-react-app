@@ -1,15 +1,160 @@
-body{
-    width: 100%;
-    height: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
-    background-color: #F3F2EE;
+body {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #f3f2ee;
 }
-.book__wrapper{
-    background-size: cover;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column; /* 세로로 정렬 */
-    align-items: center; /* 세로 가운데 정렬 */
+.book__wrapper {
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column; /* 세로로 정렬 */
+  align-items: center; /* 세로 가운데 정렬 */
+}
+
+.book__detail__wrapper {
+  display: flex;
+  align-items: center; /* 세로 가운데 정렬 */
+  justify-content: center; /* 가로 가운데 정렬 */
+
+  .book__detail__container {
+    width: 800px;
+    height: auto;
+    padding-top: 20px;
+
+    .title__container {
+      display: flex;
+      flex-direction: row;
+
+      .title {
+        font-size: 25px;
+        font-weight: bold;
+        font-family: Inter, "Source Sans Pro";
+      }
+      .sub__title {
+        margin-left: 5px;
+        color: #b2b2b2;
+        padding-top: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: Inter, "Source Sans Pro";
+      }
+    }
+    .book__information__container {
+      display: flex;
+      flex: row;
+
+      .book__cover {
+        width: auto;
+        height: 250px;
+        box-shadow: 5px 5px 30px 5px #828282;
+      }
+
+      .book__information__item {
+        display: flex;
+        flex-direction: column;
+
+        .information {
+          display: flex;
+          flex: row;
+          margin-bottom: -25px;
+
+          .label {
+            color: #828282;
+            font-family: Inter, "Source Sans Pro";
+            font-size: 18px;
+            width: 100px;
+            text-align: right;
+            margin-right: 10px;
+            white-space: nowrap;
+          }
+
+          .value {
+            color: black;
+            font-weight: bold;
+            font-family: Inter, "Source Sans Pro";
+            font-size: 18px;
+            width: 300px;
+
+            /* 글자가 width로 지정한 넓이를 넘을 경우 생략부호(...)를 표시함 */
+            text-overflow: ellipsis;
+            /* 줄바꿈하지 않고 한줄로 나오게 처리 */
+            white-space: nowrap;
+
+            .star__icon {
+              width: 20px;
+              height: 20px;
+              margin-right: 3px;
+            }
+          }
+        }
+      }
+    }
+    .book__description__container {
+      .description__title {
+        font-size: 25px;
+        font-weight: bold;
+        font-family: Inter, "Source Sans Pro";
+        margin-top: 40px;
+      }
+      .description {
+        width: 750px;
+        font-size: 25px;
+        font-family: Inter, "Source Sans Pro";
+      }
+    }
+
+    .priamry__button__list {
+      width: inherit;
+      display: flex;
+      flex-direction: row;
+      align-items: right;
+
+      .primary__button__like {
+        width: 100px;
+        color: #fe2147;
+        text-align: center;
+        font-family: Inter, "Source Sans Pro";
+        font-size: 23px;
+        font-weight: bold;
+        border-radius: 2rem;
+        border-color: #fe2147;
+        border-style: solid;
+        border-width: 3px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        padding-top: 5px;
+        margin-right: 10px;
+
+        .like__icon {
+          width: auto;
+          height: 23px;
+          margin-right: 10px;
+        }
+      }
+      .primary__button {
+        width: 200px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        background-color: #c37857;
+        margin-bottom: 10px;
+        text-align: center;
+        font-family: Inter, "Source Sans Pro";
+        font-size: 20px;
+        font-weight: bold;
+        border-radius: 2rem;
+        color: #ffffff;
+        margin-right: 10px;
+      }
+    }
+  }
+  .review__container {
+    margin-top: 30px;
+    width: 1200px;
+    background-color: bisque;
+    border-radius: 1rem;
+  }
 }

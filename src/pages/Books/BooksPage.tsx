@@ -17,6 +17,7 @@ type Book = {
     publisher: string;
     publicationDate: string;
     totalResults: number;
+    likesCount: number;
 };
 
 type BookSearchParams = {
