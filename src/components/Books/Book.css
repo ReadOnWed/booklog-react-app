@@ -163,3 +163,88 @@ body {
     margin-right: 3px;
   }
 }
+
+.search__result__container {
+  border-radius: 0.5rem;
+  margin-top: 20px;
+  width: 80vw;
+}
+.search__result__item {
+  background-color: rgb(255, 255, 255);
+  height: 300px;
+  margin-bottom: 10px;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .book__cover {
+    width: 200px;
+    height: auto;
+    float: left;
+    margin: 20px;
+  }
+  .result__item__content {
+    width: 37vw;
+    margin-left: 10px;
+    height: 100px;
+    margin-bottom: 30px;
+
+    .content {
+      justify-content: space-between;
+      display: flex;
+      padding-top: 5px;
+      height: 30px;
+      width: 10%;
+
+      .star__icon{
+        width: 20px;
+        height: 20px;
+        margin-right: 3px;
+      }
+  
+      .label {
+        color: #828282;
+        font-family: Inter, "Source Sans Pro";
+        font-size: 20px;
+        width: 100px;
+        text-align: right;
+        margin-right: 10px;
+        white-space: nowrap;
+      }
+      .value {
+        color: black;
+        font-weight: bold;
+        font-family: Inter, "Source Sans Pro";
+        font-size: 20px;
+        width: 900px;
+  
+        /* 글자가 width로 지정한 넓이를 넘을 경우 생략부호(...)를 표시함 */
+        text-overflow: ellipsis;
+        /* 줄바꿈하지 않고 한줄로 나오게 처리 */
+        white-space: nowrap;
+      }
+    }
+  }
+}
+
+.priamry__button__list {
+  width: 300px;
+  height: 130px;
+  float: right;
+
+  .primary__button {
+    width: 200px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #C37857;
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: Inter, "Source Sans Pro";
+    font-size: 20px;
+    font-weight: bold;      
+    border-radius: 2rem;
+    float: right;
+    color: #ffffff;
+  }
+}

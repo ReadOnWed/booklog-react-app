@@ -13,8 +13,3 @@ body{
     flex-direction: column; /* 세로로 정렬 */
     align-items: center; /* 세로 가운데 정렬 */
 }
-
-.book__cover{
-    width: 200px;
-    height: auto;
-}
