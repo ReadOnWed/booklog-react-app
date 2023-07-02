@@ -258,6 +258,8 @@ body {
     padding-top: 5px;
     float: right;
     margin-bottom: 10px;
+    background-color: #ffffff;
+    cursor: default;
 
     .like__icon {
         width: auto;
@@ -278,5 +280,7 @@ body {
     border-radius: 2rem;
     float: right;
     color: #ffffff;
+    cursor: default;
+
   }
 }

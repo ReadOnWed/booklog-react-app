@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 /* 페이지 이동을 할 수 있는 useNavigate 훅 import
 
 - 페이지 이동간 추가로 연산(혹은 조건 등)이 필요한 경우 useNavigate 훅 사용(= 동적 라우팅)
@@ -7,6 +7,7 @@ import React from 'react';
 */
 import { useNavigate } from "react-router-dom";
 import './Book.css';
+import { postBookLike, postBookUnLike } from '../../api/bookApi';
 
 type Book = {
     id: string;
@@ -34,6 +35,10 @@ type BookSearchResultsProps = {
 };
 
 const BookSearchResults: React.FC<BookSearchResultsProps> = ({ searchResults, bookSearchParams }) => {
+    const [likesCountMap, setLikesCountMap] = useState(new Map());
+    const [isLikedMap, setIsLikedMap] = useState(new Map());
+    const [isRendered, setIsRendered] = useState(false);
+
     // useNavigate 메소드를 navigate 변수에 저장, navigate()에 path값을 인자로 설정하여 해당 경로로 이동
     const navigate = useNavigate();
 
@@ -103,6 +108,50 @@ const BookSearchResults: React.FC<BookSearchResultsProps> = ({ searchResults, bo
         return `${year}년 ${month}월 ${day}일`;
     }
 
+    /* TODO 
+     * 서버 개발 후에 bookId와 userId만 넘기는 것으로 변경(지금은 서버가 없는상황에서 like/unlike를 구현하기 위해 likesCount 임시변수를 사용)
+     * isLiked : 서버로부터 받아온다.
+     * userId : 로그인 세션으로부터 얻어온다.
+     * likesCount : like/unlike api 수신 및 작업이후 서버가 내려주기 때문에 api 개발 후엔 불필요한 변수 
+     */
+    const handleLikeButtonClick = async (bookId : string, likesCount : number) => {
+        const userId = '1234';
+        try {
+            let updatedLikesCount: number;
+        
+            if (isLikedMap.get(bookId) == true) {
+                updatedLikesCount = await postBookUnLike(bookId, likesCount, userId);
+                setIsLikedMap((previsLikedMap) => {
+                    const newisLikedMap = new Map(previsLikedMap);
+                    newisLikedMap.set(bookId, false);
+                    return newisLikedMap;
+                });
+            } else {
+                updatedLikesCount = await postBookLike(bookId, likesCount, userId);
+                setIsLikedMap((previsLikedMap) => {
+                    const newisLikedMap = new Map(previsLikedMap);
+                    newisLikedMap.set(bookId, true);
+                    return newisLikedMap;
+                });            
+            }
+
+            setLikesCountMap((prevLikesCountMap) => {
+                const newLikesCountMap = new Map(prevLikesCountMap);
+                newLikesCountMap.set(bookId, updatedLikesCount);
+                return newLikesCountMap;
+            });
+
+        } catch (error) {
+        console.error('Failed to call API:', error);
+        }
+    };
+
+    function renderBookItemsLiked(books: Book[]){
+        books.map((book) => {
+            likesCountMap.set(book.id, book.likesCount);
+        });
+    }
+    
     function renderBookItems() {
         if (searchResults.length === 0) {
             return (
@@ -111,6 +160,11 @@ const BookSearchResults: React.FC<BookSearchResultsProps> = ({ searchResults, bo
                     <p className='no__results'>검색결과가 없습니다.</p>
                 </div>
             );
+        }
+
+        if(!isRendered){
+            renderBookItemsLiked(searchResults);
+            setIsRendered(true);
         }
 
         return searchResults.map((book) => (
@@ -149,9 +203,9 @@ const BookSearchResults: React.FC<BookSearchResultsProps> = ({ searchResults, bo
                     </div>
                 </div>
                 <div className='priamry__button__list'>
-                    <div className='primary__button__like'>
+                    <div className='primary__button__like' onClick={() => handleLikeButtonClick(book.id, book.likesCount)}>
                         <img className='like__icon' src='/images/book_like.png' alt='book_like' />
-                        {book.likesCount}
+                        {likesCountMap.get(book.id)}
                     </div>                    
                     <div className='primary__button' onClick={() => goToPaymentsSell(book.id)}>판매하기</div>
                     <div className='primary__button' onClick={() => goToPaymentsBuy(book.id)}>구매하기</div>

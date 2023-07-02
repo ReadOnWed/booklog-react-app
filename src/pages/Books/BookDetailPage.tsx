@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation, useParams } from 'react-router-dom';
 
 import './Books.css'
-import { getBookDetailsSearchByBookId } from '../../api/bookApi';
+import { getBookDetailsSearchByBookId, postBookLike, postBookUnLike } from '../../api/bookApi';
 
 type Review = {
   id: string;
@@ -53,6 +53,8 @@ const BookDetailPage: React.FC = () => {
   /* useParams 훅을 사용하며 URL 경로의 매개변수 값(bookId)을 추출 */
   const { bookId } = useParams();
   const [bookDetails, setBookDetailsSearch] = useState<BookDetails>();
+  const [likesCount, setLikesCount] = useState(-1);
+  const [isLiked, setIsLiked] = useState(false);
 
   useEffect(() => {
 
@@ -64,6 +66,7 @@ const BookDetailPage: React.FC = () => {
     const fetchBookDetails = async () => {
       const bookDetails = await getBookDetailsSearchByBookId(bookId);
       setBookDetailsSearch(bookDetails || undefined);
+      setLikesCount(bookDetails.likesCount);
     };
 
     // 뒤로가기 수행시 이전 페이지로 가기 위해 'popState' 이벤트를 사용하여 이벤트 핸들러 등록
@@ -117,6 +120,31 @@ const BookDetailPage: React.FC = () => {
 
     return stars;
   }
+
+  /* TODO 
+    * 서버 개발 후에 bookId와 userId만 넘기는 것으로 변경(지금은 서버가 없는상황에서 like/unlike를 구현하기 위해 likesCount 임시변수를 사용)
+    * isLiked : 서버로부터 받아온다.
+    * userId : 로그인 세션으로부터 얻어온다.
+    * likesCount : like/unlike api 수신 및 작업이후 서버가 내려주기 때문에 api 개발 후엔 불필요한 변수 
+  */
+  const handleLikeButtonClick = async (bookId : string, likesCount : number) => {
+    const userId = '1234';
+    try {
+      let updatedLikesCount;
+  
+      if (isLiked) {
+        updatedLikesCount = await postBookUnLike(bookId, likesCount, userId);
+        setIsLiked(false);
+      } else {
+        updatedLikesCount = await postBookLike(bookId, likesCount, userId);
+        setIsLiked(true);
+      }
+  
+      setLikesCount(updatedLikesCount);
+    } catch (error) {
+      console.error('Failed to call API:', error);
+    }
+  };
 
   function convertDateFormat(dateString: string) {
     const date = new Date(dateString);
@@ -173,10 +201,10 @@ const BookDetailPage: React.FC = () => {
         </div>
 
         <div className='priamry__button__list'>
-          <div className='primary__button__like'>
+          <div className='primary__button__like' onClick={() => handleLikeButtonClick(bookDetails.id, bookDetails.likesCount)}>
             <img className='like__icon' src='/images/book_like.png' alt='book_like' />
-            {bookDetails.likesCount}
-            </div>
+            <span>{likesCount}</span>
+          </div>
           <div className='primary__button' onClick={() => goToPaymentsSell(bookDetails.id)}>판매하기</div>
           <div className='primary__button' onClick={() => goToPaymentsBuy(bookDetails.id)}>구매하기</div>
         </div>
