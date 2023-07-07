@@ -1,102 +1,424 @@
-html, body{
-    width:100%;
-    height: 100%;
+html,
+body {
+  width: 100%;
+  height: 100%;
 }
 
-.book__search__bar{
-    background-color: #dcb5a4;
-    border-radius: 0.5rem;
-    margin-top: 3vh;
-    width: 80%;
-    height: 70px;
+.book__search__bar {
+  background-color: #dcb5a4;
+  border-radius: 2rem;
+  margin-top: 3vh;
+  width: 80vw;
+  height: 70px;
 
-    .search__bar__item{
-        background-color: #ffffff;
-        border: solid 0.3rem #d6d6d6;
-        width:15%;
-        height: 50%;
-        border-radius: 0.5rem;
-        margin-top: 13px;
-        margin-bottom: 15px;
-        margin-left: 15px;
-        font-family: Inter, 'Source Sans Pro';
-        font-size: 18px;
-    }
+  .search__bar__item {
+    background-color: #ffffff;
+    border: solid 0.3rem #d6d6d6;
+    width: 15%;
+    height: 50%;
+    border-radius: 1.8rem;
+    margin-top: 13px;
+    margin-bottom: 15px;
+    margin-left: 15px;
+    font-family: Inter, "Source Sans Pro";
+    font-size: 18px;
+    padding-left: 10px;
+  }
 
-    .search__bar__item__category{
-        background-color: #ffffff;
-        border: solid 0.3rem #d6d6d6;
-        width:15%;
-        height: 65%;
-        border-radius: 0.5rem;
-        margin-top: 13px;
-        margin-bottom: 15px;
-        margin-left: 15px;
-        font-family: Inter, 'Source Sans Pro';
-        font-size: 18px;
-        color: #777;
-    }
+  .search__bar__item__category {
+    background-color: #ffffff;
+    border: solid 0.3rem #d6d6d6;
+    width: 15%;
+    height: 65%;
+    border-radius: 1.8rem;
+    margin-top: 13px;
+    margin-bottom: 15px;
+    margin-left: 15px;
+    font-family: Inter, "Source Sans Pro";
+    font-size: 18px;
+    color: #777;
+    padding-left: 10px;
+  }
 
-    .search__logo{
-        background-color: #ffffff;
-        width: 60px;
-        height: 50px;
-        border-radius: 1.5rem;
-        border: solid 0.3rem  #75b9ee;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        margin-right: 10px;
-        float: right;
-        font-family: Inter, 'Source Sans Pro';
-        font-size: 150%;
-        font-weight: bold;
-        color:#75b9ee;
-        text-align: left;
-        padding-top: 6px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-    }
-    .search__icon{
-        width:30px;
-        height:30px;
-    }
+  .search__logo {
+    background-color: #ffffff;
+    width: 60px;
+    height: 50px;
+    border-radius: 1.5rem;
+    border: solid 0.3rem #d6d6d6;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    float: right;
+    font-family: Inter, "Source Sans Pro";
+    font-size: 150%;
+    font-weight: bold;
+    color: #75b9ee;
+    text-align: left;
+    padding-top: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .search__icon {
+    width: 30px;
+    height: 30px;
+  }
 }
-.book__search__result{
+.book__search__default {
+  border-radius: 0.5rem;
+  margin-top: 20px;
+  width: 80vw;
+  height: 100%;
+}
+
+.search__default__container {
+  height: 100%;
+
+  .search__default__list {
+    /* .search__default__item을 가로로 쌓기 위해 flex 속성 추가 */
+    display: flex;
+    /* .search__default__item의 자식 요소들을 세로로 쌓기 위해 flex-direction 속성 추가 */
+    flex-direction: column;
     background-color: rgb(255, 255, 255);
-    border-radius: 0.5rem;
-    margin-top: 3vh;
-    width: 80%;
-    height: 80%;
-    overflow: auto;
-}
-.book__search__default{
-    background-color: rgb(255, 255, 255);
-    border-radius: 0.5rem;
-    margin-top: 3vh;
-    width: 80%;
-    height: 80%;
-    overflow: auto;
-}
-
-.search__default__container{
-    .title{
-        font-family: Inter, 'Source Sans Pro';
-        margin-left: 10vw;
+    margin-bottom: 30px;
+    border-radius: 1rem;
+    justify-content: center;
+  }
+  .title__wrapper {
+    display: flex;
+    margin-left: 8vw;
+    margin-bottom: 25px;
+  }
+  .title__icon {
+    margin-top: 10px;
+    margin-left: 30px;
+    width: 50px;
+    height: 50px;
+  }
+  .title {
+    font-family: Inter, "Source Sans Pro";
+    margin-left: 10px;
+    margin-bottom: 0px;
+  }
+  .search__default__item__wrapper {
+    margin: 0 auto;
+  }
+  .search__default__item {
+    display: inline-block;
+    width: 420px;
+    height: 300px;
+    margin-right: 50px;
+    font-family: Inter, "Source Sans Pro";
+    justify-content: center;
+    align-items: center;
+  }
+  .book__cover {
+    margin-right: -30px;
+    margin-bottom: 9999px;
+    width: auto;
+    height: 240px;
+    float: left;
+    box-shadow: 5px 5px 30px 5px #828282;
+  }
+  .default__item__content {
+    flex-direction: column;
+    margin-left: -15px;
+    align-items: flex-start;
+    .content {
+      justify-content: space-between;
+      display: flex;
+      height: 33px;
+      .label {
+        color: #828282;
+        font-family: Inter, "Source Sans Pro";
+        font-size: 18px;
+        width: 150px;
+        height: 20px;
+        margin-left: 10px;
         margin-bottom: 0px;
+        text-align: right;
+      }
+      .value {
+        color: black;
+        font-weight: bold;
+        font-family: Inter, "Source Sans Pro";
+        font-size: 18px;
+        width: 200px;
+        height: 20px;
+        margin-left: 10px;
+        margin-bottom: 0px;
+        text-align: center;
+        overflow: hidden;
+
+        /* 글자가 width로 지정한 넓이를 넘을 경우 생략부호(...)를 표시함 */
+        text-overflow: ellipsis;
+        /* 줄바꿈하지 않고 한줄로 나오게 처리 */
+        white-space: nowrap;
+      }
     }
-    .search__default__list{
+  }
+  .star__icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 3px;
+  }
+}
+
+.search__result__container {
+  border-radius: 0.5rem;
+  margin-top: 20px;
+  width: 80vw;
+}
+.search__result__item {
+  background-color: rgb(255, 255, 255);
+  height: 300px;
+  margin-bottom: 10px;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .book__cover {
+    width: 200px;
+    height: auto;
+    float: left;
+    margin: 20px;
+    box-shadow: 5px 5px 30px 5px #828282;
+  }
+  .result__item__content {
+    width: 37vw;
+    margin-left: 10px;
+    height: 100px;
+    margin-bottom: 30px;
+
+    .content {
+      justify-content: space-between;
+      display: flex;
+      padding-top: 3px;
+      height: 30px;
+      width: 10%;
+
+      .star__icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 3px;
+      }
+
+      .label {
+        color: #828282;
+        font-family: Inter, "Source Sans Pro";
+        font-size: 20px;
+        width: 100px;
+        text-align: right;
+        margin-right: 10px;
+        white-space: nowrap;
+        padding-left: 30px;
+        padding-top: 15px;
+      }
+      .value {
+        color: black;
+        font-weight: bold;
+        font-family: Inter, "Source Sans Pro";
+        font-size: 20px;
+        width: 900px;
+        padding-top: 15px;
+
+        /* 글자가 width로 지정한 넓이를 넘을 경우 생략부호(...)를 표시함 */
+        text-overflow: ellipsis;
+        /* 줄바꿈하지 않고 한줄로 나오게 처리 */
+        white-space: nowrap;
+      }
+    }
+  }
+}
+
+.priamry__button__list {
+  width: 300px;
+  height: 150px;
+  float: right;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .primary__button__like {
+    width: 200px;
+    color: #fe2147;
+    text-align: center;
+    font-family: Inter, "Source Sans Pro";
+    font-size: 23px;
+    font-weight: bold;
+    border-radius: 2rem;
+    border-color: #fe2147;
+    border-style: solid;
+    border-width: 3px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding-top: 5px;
+    float: right;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+    cursor: default;
+
+    .like__icon {
+      width: auto;
+      height: 23px;
+      margin-right: 10px;
+    }
+  }
+  .primary__button {
+    width: 200px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #c37857;
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: Inter, "Source Sans Pro";
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 2rem;
+    float: right;
+    color: #ffffff;
+    cursor: default;
+  }
+}
+.review__wrapper {
+  width: 900px;
+  margin-top: 90px;
+
+  .priamry__button__list {
+    width: inherit;
+    display: flex;
+    flex-direction: row;
+    align-items: right;
+    height: 40px;
+
+    .primary__button {
+      width: 200px;
+      height: 40px;
+      text-align: center;
+      font-family: Inter, "Source Sans Pro";
+      font-size: 20px;
+      font-weight: bold;
+      border-radius: 1rem;
+      color: #717171;
+      margin-right: 10px;
+      cursor: default;
+      background-color: #f0d5af;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      border: solid;
+      border-width: 5px;
+      border-color: #e5c79c;
+
+      .primary__button__item {
+        padding-top: 1px;
+      }
+      .primary__button__icon {
+        margin-right: 10px;
+        width: 40px;
+      }
+    }
+  }
+
+  .review__container {
+    background-color: #ffffff;
+    color: #717171;
+    border-radius: 1rem;
+    width: inherit;
+    margin-top: 60px;
+    height: 800px;
+
+    .review__item {
+      display: flex;
+      flex-direction: row;
+      border: solid;
+      border-radius: 1rem;
+      border-width: 0px 0px 10px 0px;
+      cursor: default;
+
+      .review__title {
+        font-weight: bold;
+        font-family: Inter, "Source Sans Pro";
+        font-size: 20px;
+        padding-left: 30px;
+        margin-right: 10px;
+        width: 370px;
+        display: block;
+        overflow: hidden;
+
+        /* 글자가 width로 지정한 넓이를 넘을 경우 생략부호(...)를 표시함 */
+        text-overflow: ellipsis;
+        /* 줄바꿈하지 않고 한줄로 나오게 처리 */
+        white-space: nowrap;
+      }
+
+      .review__information {
         display: flex;
-        justify-content: center; /* 자식 요소를 가로로 가운데 정렬 */
-        .search__default__item{
-            display: inline-block;
-            /* 각각의 블록에 스타일을 적용할 수 있습니다. */
-            /* 예시로 width를 설정해봅시다. */
-            width: 300px;
-            margin-left: 50px;
-            margin-right: 50px;
-            font-family: Inter, 'Source Sans Pro';
+        flex-direction: row;
+        font-weight: bold;
+
+
+        .review__information__icon {
+          width: 20px;
+          height: 20px;
+          padding-top: 20px;
+          margin-right: 5px;
         }
+
+        .review__information__item {
+          width: 50px;
+          font-family: Inter, "Source Sans Pro";
+          overflow: hidden;
+          font-size: 20px;
+          /* 글자가 width로 지정한 넓이를 넘을 경우 생략부호(...)를 표시함 */
+          text-overflow: ellipsis;
+          /* 줄바꿈하지 않고 한줄로 나오게 처리 */
+          white-space: nowrap;
+        }
+      }
+
+      .review__information__writer {
+        display: flex;
+        flex-direction: row;
+        font-weight: bold;
+        font-family: Inter, "Source Sans Pro";
+        font-size: 20px;
+        margin-right: 30px;
+        width: 130px;
+
+        .review__information__icon {
+          width: 20px;
+          height: 20px;
+          padding-top: 20px;
+          margin-right: 10px;
+        }
+
+        .review__information__item {
+          width: 200px;
+          height: 20px;
+          font-weight: bold;
+          font-family: Inter, "Source Sans Pro";
+          font-size: 20px;
+          overflow: hidden;
+
+          /* 글자가 width로 지정한 넓이를 넘을 경우 생략부호(...)를 표시함 */
+          text-overflow: ellipsis;
+          /* 줄바꿈하지 않고 한줄로 나오게 처리 */
+          white-space: nowrap;
+        }
+      }
+
+      .review__information__date {
+        font-weight: bold;
+        font-family: Inter, "Source Sans Pro";
+        font-size: 20px;
+        width: 20px;
+        white-space: nowrap;
+      }
     }
+  }
 }

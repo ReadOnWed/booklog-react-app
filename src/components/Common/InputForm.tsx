@@ -5,7 +5,7 @@ import HeaderItem from "./HeaderItem";
 
 interface InputFormProps {
     offSearchBarToggle: Function;
-  }
+}
 
   
 function InputForm({ offSearchBarToggle }: InputFormProps): JSX.Element {

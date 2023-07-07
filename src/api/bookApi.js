@@ -78,3 +78,33 @@ export const getCategories = async() => {
         return null;
     }
 };
+
+// 도서 좋아요 api 호출
+export const postBookLike = async(bookId, likesCount, userId) => {
+    try {
+        const response = await axios.post('http://localhost:8080/v1/books/like', {
+            bookId : bookId,
+            likesCount : likesCount, 
+            userId : userId
+        });
+        return response.data;
+    } catch (error){
+        console.error('Fail BookSearchDeatilByBookId API call: ', error);
+        return null;
+    }
+};
+
+// 도서 좋아요 취소 api 호출
+export const postBookUnLike = async(bookId, likesCount, userId) => {
+    try {
+        const response = await axios.post('http://localhost:8080/v1/books/unlike', {
+            bookId : bookId,
+            likesCount : likesCount, 
+            userId : userId
+        });
+        return response.data;
+    } catch (error){
+        console.error('Fail BookSearchDeatilByBookId API call: ', error);
+        return null;
+    }
+};
