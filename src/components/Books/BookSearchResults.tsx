@@ -151,7 +151,7 @@ const BookSearchResults: React.FC<BookSearchResultsProps> = ({ searchResults, bo
             likesCountMap.set(book.id, book.likesCount);
         });
     }
-    
+
     function renderBookItems() {
         if (searchResults.length === 0) {
             return (
@@ -203,7 +203,14 @@ const BookSearchResults: React.FC<BookSearchResultsProps> = ({ searchResults, bo
                     </div>
                 </div>
                 <div className='priamry__button__list'>
-                    <div className='primary__button__like' onClick={() => handleLikeButtonClick(book.id, book.likesCount)}>
+                    <div
+                        className='primary__button__like' 
+                        onClick={() => handleLikeButtonClick(book.id, book.likesCount)}
+                        style={isLikedMap.get(book.id) 
+                            ? {backgroundColor : '#fe2147', color:'#ffffff'} 
+                            : {backgroundColor : '#ffffff', color :'#fe2147'}
+                        }
+                    >
                         <img className='like__icon' src='/images/book_like.png' alt='book_like' />
                         {likesCountMap.get(book.id)}
                     </div>                    

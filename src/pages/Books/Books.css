@@ -20,7 +20,7 @@ body {
   justify-content: center; /* 가로 가운데 정렬 */
 
   .book__detail__container {
-    width: 800px;
+    width: 750px;
     height: auto;
     padding-top: 20px;
 
@@ -100,7 +100,7 @@ body {
         margin-top: 40px;
       }
       .description {
-        width: 750px;
+        width: 700px;
         font-size: 25px;
         font-family: Inter, "Source Sans Pro";
       }
@@ -128,7 +128,6 @@ body {
         justify-content: center;
         padding-top: 5px;
         margin-right: 10px;
-        background-color: #ffffff;
         cursor: default;
 
         .like__icon {
@@ -153,11 +152,5 @@ body {
         cursor: default;
       }
     }
-  }
-  .review__container {
-    margin-top: 30px;
-    width: 1200px;
-    background-color: bisque;
-    border-radius: 1rem;
   }
 }

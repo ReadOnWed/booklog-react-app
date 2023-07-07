@@ -3,6 +3,7 @@ import { useNavigate, useLocation, useParams } from 'react-router-dom';
 
 import './Books.css'
 import { getBookDetailsSearchByBookId, postBookLike, postBookUnLike } from '../../api/bookApi';
+import ReviewListByBookId from '../../components/Books/ReviewListByBookId';
 
 type Review = {
   id: string;
@@ -201,7 +202,14 @@ const BookDetailPage: React.FC = () => {
         </div>
 
         <div className='priamry__button__list'>
-          <div className='primary__button__like' onClick={() => handleLikeButtonClick(bookDetails.id, bookDetails.likesCount)}>
+          <div 
+            className='primary__button__like' 
+            onClick={() => handleLikeButtonClick(bookDetails.id, bookDetails.likesCount)}
+            style={isLiked 
+              ? {backgroundColor : '#fe2147', color:'#ffffff'} 
+              : {backgroundColor : '#ffffff', color :'#fe2147'}
+            }
+          >
             <img className='like__icon' src='/images/book_like.png' alt='book_like' />
             <span>{likesCount}</span>
           </div>
@@ -209,22 +217,11 @@ const BookDetailPage: React.FC = () => {
           <div className='primary__button' onClick={() => goToPaymentsBuy(bookDetails.id)}>구매하기</div>
         </div>
       </div>
-
-      <div className='review__container'>
-        <h4 className='review__wrapper'>Reviews</h4>
-        {bookDetails.reviews.map((review) => (
-          <div key={review.id}>
-            <h5 className='review__title'>{review.reviewTitle}</h5>
-            <p className='review__content'>{review.reviewContent}</p>
-            <p className='rating'>Rating: {review.rating}</p>
-            <p className='date'>Created At: {review.createdAt}</p>
-            <p className='date'>Updated At: {review.updatedAt}</p>
-            <p className='likes__count'>Likes: {review.likesCount}</p>
-            <p className='scraps__count'>Scraps: {review.scrapsCount}</p>
-            <p className='views__count'>Views: {review.viewsCount}</p>
-          </div>
-        ))}
-      </div>
+      <ReviewListByBookId
+        reviews = {bookDetails.reviews}
+        bookId = {bookDetails.id}
+        userId = '1234'
+      />
     </div>
   );
 };
