@@ -223,8 +223,13 @@ const BookSearchResults: React.FC<BookSearchResultsProps> = ({ searchResults, bo
 
     return (
         <div className='search__result__wrapper>'>
-            <h1 className='total__count'>총 {searchResults[0].totalResults} 건이 검색되었습니다.</h1>
-            <div className='search__result__container'>{renderBookItems()}</div>
+            {searchResults ? (
+                <>
+                    <h1 className='total__count'>총 {searchResults[0].totalResults} 건이 검색되었습니다.</h1>
+                    <div className='search__result__container'>{renderBookItems()}</div>
+                </>
+            ) : (<img src={`images/404-error.png`} className='error__icon' alt="404-error"/>
+            )}
         </div>
     );
 };

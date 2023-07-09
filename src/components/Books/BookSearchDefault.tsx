@@ -43,6 +43,9 @@ const BookSearchDefaultResults: React.FC<DefaultResultsBookProps> = ({ topRatedB
   const navigate = useNavigate();
 
   const renderBooks = (books: Book[]) => {
+    if(books == null){
+      return <img src={`images/404-error.png`} className='error__icon' alt="404-error" />
+    }
     // goToDeatil 변수에서 navigate 변수를 호출 및 파라미터를 (매개변수명: 타입) 로 정의
     const goToDetail = (bookId: string) => {
       navigate(`/bookDetail/${bookId}`);
