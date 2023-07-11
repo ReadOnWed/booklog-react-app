@@ -31,20 +31,20 @@ const BookSearchForm: React.FC<BookSearchFormProps> = ({ onSearch, bookSearchPar
 
     const handleCategoryChange = (event: ChangeEvent<HTMLSelectElement>) => {
         setInputCategory(event.target.value);
-      };
-    
-      const [options, setOptions] = useState<Option[]>([]);
+    };
 
-      useEffect(() => {
+    const [options, setOptions] = useState<Option[]>([]);
+
+    useEffect(() => {
         const getCategoriesData = async () => {
-          const categories = await getCategories();
-          if (categories) {
-            setOptions(categories);
-          }
+            const categories = await getCategories();
+            if (categories) {
+                setOptions(categories);
+            }
         };
-    
+
         getCategoriesData();
-      }, []);
+    }, []);
 
     useEffect(() => {
         // 검색 조건이 모두 null인 경우를 핸들링
@@ -58,16 +58,16 @@ const BookSearchForm: React.FC<BookSearchFormProps> = ({ onSearch, bookSearchPar
     const handleSearch = () => {
         // 입력된 검색 조건이 없거나 공백일 경우 검색을 막음
         if (
-            !inputTitle.trim() && 
-            !inputCategory.trim() && 
-            !inputPublisher.trim() && 
+            !inputTitle.trim() &&
+            !inputCategory.trim() &&
+            !inputPublisher.trim() &&
             !inputAuthor.trim()) {
             return;
         }
 
-        const searchData: BookSearchParams = { 
-            title: inputTitle, 
-            category: inputCategory, 
+        const searchData: BookSearchParams = {
+            title: inputTitle,
+            category: inputCategory,
             publisher: inputPublisher,
             author: inputAuthor
         };
@@ -75,8 +75,9 @@ const BookSearchForm: React.FC<BookSearchFormProps> = ({ onSearch, bookSearchPar
     };
 
     // Enter 키를 눌러도 검색 가능
-    const onKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-        if (e.key === 'Enter') {
+    const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        // isComposing : 문자가 입력 중일 경우 true를 리턴한다(이벤트 중복발생 방지)
+        if (e.key === 'Enter' && !e.nativeEvent.isComposing) {
             handleSearch();
         }
     };
@@ -89,7 +90,7 @@ const BookSearchForm: React.FC<BookSearchFormProps> = ({ onSearch, bookSearchPar
                 value={inputTitle}
                 onChange={(e) => setInputTitle(e.target.value)}
                 placeholder={inputTitle ? inputTitle : "책 제목"}
-                onKeyDown={onKeyPress}
+                onKeyDown={onKeyDown}
             />
             <select
                 className='search__bar__item__category'
@@ -106,7 +107,7 @@ const BookSearchForm: React.FC<BookSearchFormProps> = ({ onSearch, bookSearchPar
                 value={inputPublisher}
                 onChange={(e) => setInputPublisher(e.target.value)}
                 placeholder={inputPublisher ? inputPublisher : "출판사"}
-                onKeyDown={onKeyPress}
+                onKeyDown={onKeyDown}
             />
             <input
                 className='search__bar__item'
@@ -114,7 +115,7 @@ const BookSearchForm: React.FC<BookSearchFormProps> = ({ onSearch, bookSearchPar
                 value={inputAuthor}
                 onChange={(e) => setInputAuthor(e.target.value)}
                 placeholder={inputAuthor ? inputAuthor : "저자"}
-                onKeyDown={onKeyPress}
+                onKeyDown={onKeyDown}
             />
             <button onClick={handleSearch} className='search__logo'>
                 <img className="search__icon" src={"images/search.png"}></img>

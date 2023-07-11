@@ -7,7 +7,8 @@ import BookDetail from "./pages/Books/BookDetailPage";
 import User from "./pages/Members/index";
 import LoginPage from "./pages/Members/LoginPage";
 import MyPage from "./pages/Members/Mypage";
-import Review from "./pages/Reviews";
+import Review from "./pages/Reviews/ReviewsPage";
+import ReviewDetail from "./components/Reviews/ReviewDetailPage"
 import Payment from "./pages/Payments";
 import Message from "./pages/Messages";
 import Feed from "./pages/Feed";
@@ -27,6 +28,7 @@ export default function App() {
         <Route path="/chat"  element={<Message />} />
         <Route path="/loginPage" element={<LoginPage />} />
         <Route path="/myPage" element={<MyPage/>}/>
+        <Route path="/reviewDetail/:reviewId" element={<ReviewDetail/>}/>
       </Routes>
     </BrowserRouter>
   );

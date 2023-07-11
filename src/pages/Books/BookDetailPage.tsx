@@ -220,6 +220,7 @@ const BookDetailPage: React.FC = () => {
       <ReviewListByBookId
         reviews = {bookDetails.reviews}
         bookId = {bookDetails.id}
+        bookTitle= {bookDetails.title}
         userId = '1234'
       />
     </div>

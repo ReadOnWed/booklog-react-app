@@ -84,8 +84,8 @@ const BooksPage: React.FC = () => {
         };
 
         fetchData();
-    }, [location.search]); // 의존성 배열, 경로 정보(location.search)가 달라질때마다 useEffect 훅 실행하여 재랜더링
-
+    }, []); // 의존성 배열, 초기에만 실행하므로 빈 배열([])로 선언
+    
     const handleSearch = (searchData: BookSearchParams) => {
         
         // API 요청 및 응답 처리 로직
@@ -112,10 +112,10 @@ const BooksPage: React.FC = () => {
 
             // useNavigate 훅을 통해 검색어를 URL 경로에 추가
             const searchParamsByUrlPath = new URLSearchParams();
-            if (searchData.title) searchParamsByUrlPath.set('title', searchData.title);
-            if (searchData.category) searchParamsByUrlPath.set('category', searchData.category);
-            if (searchData.publisher) searchParamsByUrlPath.set('publisher', searchData.publisher);
-            if (searchData.author) searchParamsByUrlPath.set('author', searchData.author);
+            if (searchData.title && searchData.title !== '') searchParamsByUrlPath.set('title', searchData.title);
+            if (searchData.category && searchData.category !== '') searchParamsByUrlPath.set('category', searchData.category);
+            if (searchData.publisher && searchData.publisher !== '') searchParamsByUrlPath.set('publisher', searchData.publisher);
+            if (searchData.author && searchData.author !== '') searchParamsByUrlPath.set('author', searchData.author);
             navigate(`/books?${searchParamsByUrlPath.toString()}`);
         };
 
