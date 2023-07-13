@@ -8,10 +8,10 @@ import User from "./pages/Members/index";
 import LoginPage from "./pages/Members/LoginPage";
 import MyPage from "./pages/Members/Mypage";
 import Review from "./pages/Reviews/ReviewsPage";
-import ReviewDetail from "./components/Reviews/ReviewDetailPage"
+import ReviewDetail from "./pages/Reviews/ReviewDetailPage";
 import Payment from "./pages/Payments";
 import Message from "./pages/Messages";
-import Feed from "./pages/Feed";
+import Feed from "./pages/Feeds/Feed";
 
 export default function App() {
   return (
@@ -19,7 +19,7 @@ export default function App() {
       <Header />
 
       <Routes>
-        <Route path="/feed" element={<Feed />} />
+        <Route path="/" element={<Feed />} />
         <Route path="/books" element={<Book />} />
         <Route path="/bookDetail/:bookId" element={<BookDetail />}/>
         <Route path="/members" element={<User />} />

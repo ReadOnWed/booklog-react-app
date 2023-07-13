@@ -30,7 +30,7 @@ type ReviewDetail = {
 const ReveiwDetailPage: React.FC = () => {
     /* useParams 훅을 사용하여 URL 경로의 매개변수 값 추출 */
     const { reviewId } = useParams();
-    
+
     const reviewDetail = getReviewDetailsByReviewId(reviewId);
 
     return (

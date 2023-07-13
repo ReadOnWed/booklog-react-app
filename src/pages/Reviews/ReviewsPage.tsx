@@ -41,15 +41,6 @@ type ReviewSearchTerms = {
     reviewWriter?: string | null;
 };
 
-type ReviewSearchResultProps = {
-    reviewsSearchResults?: Review[];
-    reviewsSearchByReviewContent?: Review[];
-    reviewsSearchByBookTitle?: Review[];
-    reviewsSearchByReviewWriter?: Review[];
-    reviewSearchTerms?: ReviewSearchTerms;
-};
-
-
 const ReviewsPage: React.FC = () => {
     /* 화면전환시, 단순 버튼 클릭이 아닌 연산(url 전달 등)이 필요할 경우엔 useNaviagte 훅을 사용 */
     const navigate = useNavigate();

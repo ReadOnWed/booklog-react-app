@@ -2,6 +2,19 @@ import axios from 'axios';
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
+// 피드 노출 리뷰 조회 API
+export const getFeedReviewsByUserId= async(userId) => {
+    try {
+        const response = await axios.get('http://localhost:8080/v1/reviews/feed', {
+            params: {userId: userId}
+            });
+        return response.data;
+    } catch (error){
+        console.error('Fail getReviewSearchResultsByReviewTitle API call: ',error);
+        return null;
+    }
+};
+
 // 리뷰 제목으로 검색 API
 export const getReviewSearchResultsByReviewTitle = async(searchKeyword) => {
     try {
