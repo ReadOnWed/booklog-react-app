@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 type Book = {
@@ -43,12 +43,13 @@ const DescribeMappingByProps = { // type : 객체([key: string]: value)
     "reviewSearchResultsByReviewTitle" : "제목에 포함되어 있어요",
     "reviewSearchResultsByReviewContent" : "본문에 포함되어 있어요",
     "reviewSearchResultsByBookTitle" : "에 대한 리뷰에요",
-    "reviewSearchResultsByReviewWriter" : "이(가) 작성한 리뷰에요"
+    "reviewSearchResultsByReviewWriter" : "님이 작성한 리뷰에요"
 }
 
 const ReviewSearchResultsItems: React.FC<ReviewSearchResultsItemsProps> = ({reviewSearchResultsItemsKey, reviewSearchResultsItems, reviewSearchTerms}) => {
     const navigate = useNavigate();
 
+    console.log(reviewSearchResultsItemsKey + " " + reviewSearchResultsItems)
     const serializeSearchParams = (searchTerms: ReviewSearchTerms) => {
         const params = new URLSearchParams();
         Object.entries(searchTerms).forEach(([key, value]) => {
@@ -70,7 +71,20 @@ const ReviewSearchResultsItems: React.FC<ReviewSearchResultsItemsProps> = ({revi
             - 타입 단언을 함으로써 미리 정의한 해당 타입의 속성과 메서드를 사용할 수 있다.
             - 쉽게 말해, 타입스크립트에게 개발자가 정의한 DescribeMappingByProps라는 type이 존재함을 알려준다.
     */
-    const description = (DescribeMappingByProps as {[key: string]: string})[reviewSearchResultsItemsKey];
+    const description = (itemKey: String, reviewSearchTerms?: ReviewSearchTerms) => {
+        if(!reviewSearchTerms){
+            return;
+        }
+
+        let description = "";
+        if(itemKey === "reviewSearchResultsByBookTitle" && reviewSearchTerms.bookTitle){
+            description = '"' + reviewSearchTerms.bookTitle + '" ';
+        }
+        if(itemKey === "reviewSearchResultsByReviewWriter" && reviewSearchTerms.reviewWriter){
+            description = reviewSearchTerms.reviewWriter;
+        }
+        return description + (DescribeMappingByProps as {[key: string]: string})[reviewSearchResultsItemsKey];
+    }
 
     const renderReviewSearchResultsItems = (reviews: Review[]) => {
         if(!reviews || !Array.isArray(reviews) || !reviews.length){
@@ -99,7 +113,9 @@ const ReviewSearchResultsItems: React.FC<ReviewSearchResultsItemsProps> = ({revi
 
     return (
         <div className="review__result__box">
-            <div className="review__result__item__title">{description}</div>
+            <div className="review__result__item__title">
+                {description(reviewSearchResultsItemsKey, reviewSearchTerms)}
+            </div>
             {
                 reviewSearchResultsItems? (
                     renderReviewSearchResultsItems(reviewSearchResultsItems)
