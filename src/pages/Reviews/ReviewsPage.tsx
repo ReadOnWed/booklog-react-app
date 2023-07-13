@@ -89,6 +89,8 @@ const ReviewsPage: React.FC = () => {
         searchKeyword?: String | null,
         bookTitle?: String | null,
         reviewWriter?: String | null) => {
+            clearReviewSearchResults();
+
             if (searchKeyword) {
                 const reviewSearchResultsByReviewTitle = await getReviewSearchResultsByReviewTitle(searchKeyword);
                 const reviewSearchResultsByReviewContent = await getReviewSearchResultsByReviewContent(searchKeyword);
@@ -105,6 +107,13 @@ const ReviewsPage: React.FC = () => {
                 setReviewSearchResultsByReviewWriter(reviewSearchResultsByReveiwWriter);
             }
     };
+
+    const clearReviewSearchResults = () => {
+        setReviewSearchResultsByReviewTitle([]);
+        setReviewSearchResultsByReviewContent([]);
+        setReviewSearchResultsByBookTitle([]);
+        setReviewSearchResultsByReviewWriter([]);
+    }
 
     const handleSearch = (reviewSearchTerms: ReviewSearchTerms) => {
         const fetchData = async () => {
