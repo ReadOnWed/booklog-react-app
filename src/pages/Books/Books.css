@@ -23,6 +23,8 @@ body {
     width: 750px;
     height: auto;
     padding-top: 20px;
+    margin-left: 30px;
+    margin-right: -60px;
 
     .title__container {
       display: flex;
@@ -100,9 +102,11 @@ body {
         margin-top: 40px;
       }
       .description {
-        width: 700px;
-        font-size: 25px;
+        width: 600px;
+        font-size: 20px;
         font-family: Inter, "Source Sans Pro";
+        padding-left: 20px;
+        padding-right: 20px;
       }
     }
 

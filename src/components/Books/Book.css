@@ -15,7 +15,7 @@ body {
   background-color: #dcb5a4;
   border-radius: 2rem;
   margin-top: 3vh;
-  width: 80vw;
+  width: 1500px;
   height: 70px;
 
   .search__bar__item {
@@ -75,7 +75,7 @@ body {
 .book__search__default {
   border-radius: 0.5rem;
   margin-top: 20px;
-  width: 80vw;
+  width: 1500px;
   height: 100%;
 }
 
@@ -109,6 +109,7 @@ body {
     margin-bottom: 0px;
   }
   .search__default__item__wrapper {
+    display: flex;
     margin: 0 auto;
   }
   .search__default__item {
@@ -142,7 +143,7 @@ body {
         font-size: 18px;
         width: 150px;
         height: 20px;
-        margin-left: 10px;
+        margin-left: 5px;
         margin-bottom: 0px;
         text-align: right;
       }
@@ -291,8 +292,10 @@ body {
   }
 }
 .review__wrapper {
-  width: 900px;
+  width: 800px;
   margin-top: 90px;
+  margin-left: -10px;
+  margin-right: 30px;
 
   .priamry__button__list {
     width: inherit;
@@ -353,7 +356,7 @@ body {
         font-size: 20px;
         padding-left: 30px;
         margin-right: 10px;
-        width: 370px;
+        width: 270px;
         display: block;
         overflow: hidden;
 
