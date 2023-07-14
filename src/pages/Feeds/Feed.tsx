@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import ReviewSearchResults from "../../components/Reviews/ReviewSearchResults";
+import React, { useEffect, useState } from "react";
+import ReviewSearchResultsItems from "../../components/Reviews/ReviewSearchResultsItems";
 import { getFeedReviewsByUserId } from '../../api/reviewApi';
 
 type Book = {
@@ -28,15 +28,23 @@ type Review = {
 };
 
 const Feed: React.FC = () => {
-    const [feedReviews, setFeedReiews] = useState();
+    const [feedReviews, setFeedReiews] = useState<Review[]>([]);
+    let userId = "1234";
 
-    const feedReviewsByUserId = getFeedReviewsByUserId('1234');
+    const fetchData = async () => {
+        const feedReviewsByUserId = await getFeedReviewsByUserId(userId);
+        setFeedReiews(feedReviewsByUserId);
+    }
+
+    useEffect(() => {
+        fetchData();
+    }, []) // 의존성배별은 빈 배열([])로 선언하여 최초 1회만 페이지 랜더링
+
     return (
         <div>
             feed입니다.
-            <ReviewSearchResults
-                reviewSearchResults={{
-                }}
+            <ReviewSearchResultsItems
+                reviewSearchResultsItems={feedReviews}
             />
         </div>
     )
