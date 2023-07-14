@@ -8,7 +8,7 @@ import User from "./pages/Members/index";
 import LoginPage from "./pages/Members/LoginPage";
 import MyPage from "./pages/Members/Mypage";
 import Review from "./pages/Reviews/ReviewsPage";
-import ReviewDetail from "./pages/Reviews/ReviewDetailPage";
+import ReviewDetail from "./components/Reviews/ReviewDetailPage";
 import Payment from "./pages/Payments";
 import Message from "./pages/Messages";
 import Feed from "./pages/Feeds/Feed";
