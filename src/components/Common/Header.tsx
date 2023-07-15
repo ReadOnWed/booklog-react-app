@@ -39,7 +39,7 @@ function Header(): JSX.Element {
         <header className="header__wrapper">
             <div className="header__box">
                 <div className="booklog_logo" >
-                    <Link to="/feed" style={{ textDecoration: "none"}}>
+                    <Link to="/" style={{ textDecoration: "none"}}>
                         <img className="logo_image" src={"images/logo.png"}/>
                         <div className="booklog__title">
                             <span className="booklog__title__B">B</span>

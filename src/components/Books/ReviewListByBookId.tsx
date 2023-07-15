@@ -17,9 +17,10 @@ type Review = {
 };
 
 type ReviewListProps = {
-    reviews : Review[];
-    bookId : string;
-    userId : string
+    reviews: Review[];
+    bookId: string;
+    bookTitle: string;
+    userId: string;
 }
 function convertDateFormat(dateString: string) {
     const date = new Date(dateString);
@@ -53,11 +54,11 @@ function renderReivewsItem(reviews: Review[], goToReivewDetailByReviewId: (revie
     ));
 }
 
-const ReviewListByBookId: React.FC<ReviewListProps> = ({ reviews, bookId, userId }) => {
+const ReviewListByBookId: React.FC<ReviewListProps> = ({ reviews, bookId, bookTitle, userId }) => {
     const navigate = useNavigate();
 
-    const goToReviewListByBookId = (bookId: string) => {
-        const url = `/review/list?bookId=${bookId}`;
+    const goToReviewListByBookId = (bookTitle: string) => {
+        const url = `/reviews?bookTitle=${bookTitle}`;
         navigate(url);
     }
 
@@ -67,14 +68,14 @@ const ReviewListByBookId: React.FC<ReviewListProps> = ({ reviews, bookId, userId
     }
 
     const goToReivewDetailByReviewId = (reviewId: string) => {
-        const url = `/review/${reviewId}`;
+        const url = `/reviewDetail/${reviewId}`;
         navigate(url);
     }
     
     return (
         <div className='review__wrapper'>
             <div className='priamry__button__list'>
-                <div className='primary__button' onClick={() => goToReviewListByBookId(bookId)}>
+                <div className='primary__button' onClick={() => goToReviewListByBookId(bookTitle)}>
                     <img className='primary__button__icon' src={`/images/review_list.png`} />
                     <p className='primary__button__item'>전체 리뷰</p>
                 </div>
